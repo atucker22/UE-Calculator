@@ -1,0 +1,444 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background-color: #e9e9e9;
+    transform: translateY(-5px);
+}
+
+.card.selected {
+    background-color: #1E90FF;
+    color: white;
+}
+
+button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1873CC;
+}
+
+/* Existing styles remain the same */
+
+.options-container, .calculators-container {
+    margin-top: 20px;
+}
+
+.option {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #e0e0e0;
+}
+
+.option.selected {
+    background-color: #1E90FF;
+    color: white;
+}
+
+.calculator-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.calculator-card h3 {
+    margin-top: 0;
+}
+
+.rom-table, .strength-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.rom-table th, .rom-table td, .strength-table th, .strength-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.rom-table th, .strength-table .header-row th {
+    background-color: #1E90FF;
+    color: white;
+}
+
+.rom-table input[type="number"], .strength-table input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+.instructions, .reference, .key {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.key p {
+    margin: 5px 0;
+}
+
+.arthroplasty-options, .instability-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.arthroplasty-option, .instability-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.arthroplasty-option:hover, .instability-option:hover {
+    background-color: #F0F8FF;
+}
+
+.arthroplasty-option label, .instability-option label {
+    cursor: pointer;
+    padding-left: 25px;
+    position: relative;
+    width: 100%;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.arthroplasty-option input[type="radio"]:checked + label,
+.instability-option input[type="radio"]:checked + label {
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+.arthroplasty-option label::before, .instability-option label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #1E90FF;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.arthroplasty-option input[type="radio"]:checked + label::after,
+.instability-option input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #1E90FF;
+    border-radius: 50%;
+}
+
+.arthroplasty-option input[type="radio"],
+.instability-option input[type="radio"] {
+    display: none;
+}
+
+.synovial-hypertrophy-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-top: 15px;
+}
+
+.synovial-hypertrophy-table th,
+.synovial-hypertrophy-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.synovial-hypertrophy-table thead th {
+    background-color: #1E90FF;
+    color: white;
+    font-weight: bold;
+}
+
+.total-impairment {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+/* Update these styles for all checkbox types */
+.synovial-checkbox,
+.subluxation-checkbox,
+.passive-instability-checkbox,
+.active-deviation-checkbox,
+.carpal-instability-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #1E90FF;  /* Blue border */
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 5px;
+    background-color: white;
+}
+
+.synovial-checkbox:checked,
+.subluxation-checkbox:checked,
+.passive-instability-checkbox:checked,
+.active-deviation-checkbox:checked,
+.carpal-instability-checkbox:checked {
+    background-color: #1E90FF;  /* Blue fill when checked */
+}
+
+.synovial-checkbox:checked::after,
+.subluxation-checkbox:checked::after,
+.passive-instability-checkbox:checked::after,
+.active-deviation-checkbox:checked::after,
+.carpal-instability-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.synovial-checkbox:hover,
+.subluxation-checkbox:hover,
+.passive-instability-checkbox:hover,
+.active-deviation-checkbox:hover,
+.carpal-instability-checkbox:hover {
+    background-color: #F0F8FF;  /* Light blue on hover */
+}
+
+.synovial-checkbox:checked:hover,
+.subluxation-checkbox:checked:hover,
+.passive-instability-checkbox:checked:hover,
+.active-deviation-checkbox:checked:hover,
+.carpal-instability-checkbox:checked:hover {
+    background-color: #1E90FF;  /* Keep blue when checked and hovered */
+}
+
+/* Update the arthroplasty-option styles */
+.arthroplasty-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.arthroplasty-option:hover {
+    background-color: #F0F8FF;
+}
+
+.arthroplasty-option label {
+    cursor: pointer;
+    padding-left: 25px;
+    position: relative;
+    width: 100%;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+/* Style for both radio and checkbox inputs */
+.arthroplasty-option input[type="radio"],
+.arthroplasty-option input[type="checkbox"] {
+    display: none;
+}
+
+/* Style for both radio and checkbox labels */
+.arthroplasty-option label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #1E90FF;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Style for both checked radio and checkbox labels */
+.arthroplasty-option input[type="radio"]:checked + label,
+.arthroplasty-option input[type="checkbox"]:checked + label {
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+/* Style for both checked radio and checkbox indicators */
+.arthroplasty-option input[type="radio"]:checked + label::after,
+.arthroplasty-option input[type="checkbox"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #1E90FF;
+    border-radius: 50%;
+}
+
+/* Thumb ROM Calculator Styles */
+#thumbCalculator {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#thumbCalculator h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#thumbCalculator table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#thumbCalculator th,
+#thumbCalculator td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#thumbCalculator .blue-header {
+    background-color: #1E90FF;
+    color: white;
+}
+
+#thumbCalculator .blue-cell {
+    background-color: #1E90FF;
+}
+
+#thumbCalculator .grey-cell {
+    background-color: #f0f0f0;
+}
+
+#thumbCalculator .joints {
+    text-align: left;
+    font-weight: bold;
+}
+
+#thumbCalculator .empty {
+    background-color: #ffffff;
+}
+
+#thumbCalculator .no-bottom-border {
+    border-bottom: none;
+}
+
+#thumbCalculator .vertical-center {
+    vertical-align: middle;
+}
+
+#thumbCalculator input[type="number"] {
+    width: 60px;
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+#thumbCalculator input[type="number"]:focus {
+    outline: none;
+    border-color: #1E90FF;
+}
+
+/* Remove spinner buttons from number inputs */
+#thumbCalculator input[type="number"]::-webkit-inner-spin-button,
+#thumbCalculator input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#thumbCalculator input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+#total-imp {
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
