@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upper Extremity Impairment Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upper Extremity Impairment Calculator</h1>
+        <div class="card-container">
+            <div class="card" data-value="shoulder">Shoulder</div>
+            <div class="card" data-value="elbow">Elbow</div>
+            <div class="card" data-value="wrist">Wrist</div>
+            <div class="card" data-value="thumb">Thumb</div>
+            <div class="card" data-value="index">Index Finger</div>
+            <div class="card" data-value="middle">Middle Finger</div>
+            <div class="card" data-value="ring">Ring Finger</div>
+            <div class="card" data-value="little">Little Finger</div>
+            <div class="card" data-value="nerve">Peripheral Nerve Disorders</div>
+            <div class="card" data-value="vascular">Peripheral Vascular Disorders</div>
+            <div class="card" data-value="grip">Grip/Pinch Strength</div>
+            <div class="card" data-value="amputation">Arm Amputation</div>
+        </div>
+        <button id="calculate">Calculate Impairment</button>
+        <div id="result"></div>
+        <div class="options-container" id="optionsContainer" style="display: none;">
+            <h2 id="currentCardTitle"></h2>
+            <div id="optionsList"></div>
+            <button id="nextCard">Next</button>
+        </div>
+        <div class="calculators-container" id="calculatorsContainer" style="display: none;">
+            <h2>Impairment Calculators</h2>
+            <div id="calculatorsList"></div>
+            <button id="finalizeImpairment">Finalize Impairment</button>
+        </div>
+        <div id="index-finger-section" style="display: none;">
+            <h2>Index Finger Calculator</h2>
+            <button id="calculate-index" class="calculate-button">Calculate</button>
+            <div id="index-calculator-options"></div>
+        </div>
+    </div>
+
+    <!-- Load scripts as modules -->
+    <script type="module" src="js/data/shoulderData.js"></script>
+    <script type="module" src="js/calculators/shoulderCalculator.js"></script>
+    <script type="module" src="js/calculators/wristCalculator.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 
